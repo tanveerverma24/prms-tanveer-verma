@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Record Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+    <h1 class="main-title">🩺 Patient Record Management System</h1>
+  </header>
+  <!-- Signup Page -->
+  <section id="signupPage">
+    <h2 class="section-title">👩‍⚕️Doctor Signup👩‍⚕️</h2>
+    <form onsubmit="return signupUser(event)">
+      <input type="text" id="signupUsername" placeholder="Username" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="text" id="signupPhone" placeholder="Phone Number" required />
+      <button type="submit">Signup</button>
+      <p>Already Registered? <a href="#" onclick="showLogin()">Login</a></p>
+       <p class="tips">
+    💡 Tip: Use a strong password and keep your phone number updated.<br />
+  </p>
+    </form>
+  </section>
+  <!-- Login Page -->
+  <section id="loginPage" class="hidden">
+    <h2 class="section-title">👨‍⚕️Doctor Login👩‍⚕️</h2>
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p><a href="#" onclick="showForgotUsername()">Forgot Username</a> | 
+         <a href="#" onclick="showForgotPassword()">Forgot Password</a></p>
+         <p><a href="#" onclick="showSignup()">🔙 Back to Signup</a></p>
+    </form>
+  </section>
+  <!-- Forgot Username -->
+  <section id="forgotUsernamePage" class="hidden">
+    <h2>Recover Username</h2>
+    <form onsubmit="return recoverUsername(event)">
+      <input type="email" id="recoverUsernameEmail" placeholder="Registered Email" required />
+      <button type="submit">Recover</button>
+      <p><a href="#" onclick="showLogin()">Back to Login</a></p>
+    </form>
+  </section>
+
+  <!-- Forgot Password -->
+  <section id="forgotPasswordPage" class="hidden">
+    <h2>Recover Password</h2>
+    <form onsubmit="return recoverPassword(event)">
+      <input type="text" id="recoverPhone" placeholder="Registered Phone Number" required />
+      <button type="submit">Recover</button>
+      <p><a href="#" onclick="showLogin()">Back to Login</a></p>
+    </form>
+  </section>
+
+  <!-- Patient Record Page -->
+  <section id="recordPage" class="hidden">
+    <h2 class="section-title">📋New Patient Record</h2>
+    <form onsubmit="return savePatient(event)">
+      <input type="text" id="pname" placeholder="Patient Name" required />
+      <input type="text" id="pphone" placeholder="Phone Number" required />
+      <input type="text" id="paddress" placeholder="Address" required />
+      <select id="pgender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <input type="number" id="page" placeholder="Age" required />
+      <input type="number" id="pfee" placeholder="Consultation Fee" required />
+      <textarea id="ptreatment" placeholder="Treatment Details" required></textarea>
+      <button type="submit">Save/Update Records</button>
+    </form>
+    <input type="text" id="searchInput" placeholder="🔍 Search patient records..." onkeyup="searchTable()" />
+    <h3>Saved Records</h3>
+    <table>
+      <thead>
+         <tr>
+     <th>S.No.</th><th>Name</th><th>Phone</th><th>Address</th><th>Gender</th><th>Age</th><th>Fee</th><th>Treatment</th><th>Date/Time</th><th>Actions</th>
+  </tr>
+      </thead>
+      <tbody id="recordTableBody"></tbody>
+    </table>
+  </section>
+  
+
+  <<footer class="project-info">
+    <h3>📝 About This Project</h3>
+  <p>
+    This <strong>Patient Record Management System</strong> is a mini-project developed by 
+    <strong>Tanveer Verma</strong>, a student of the <strong>Department of Computer Science</strong> at 
+    <strong>Shri Jai Narayan Degree College, Station Road, Charbagh, Lucknow</strong>.
+  </p>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
